@@ -1,4 +1,4 @@
-package com.example;
+package com.example.common;
 
 import javax.swing.JPanel;
 import java.awt.Dimension;

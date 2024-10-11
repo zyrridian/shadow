@@ -2,6 +2,8 @@ package com.example;
 
 import javax.swing.JFrame;
 
+import com.example.common.GamePanel;
+
 public class App {
     public static void main(String[] args) {
         // Membuat jendela utama untuk game
