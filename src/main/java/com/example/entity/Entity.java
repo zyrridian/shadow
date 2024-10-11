@@ -10,4 +10,7 @@ public class Entity {
     public BufferedImage up0, up1, up2, down0, down1, down2, left0, left1, left2, right0, right1, right2;
     public String direction;
 
+    public int spriteCounter = 0;
+    public int spriteNumber = 1;
+
 }
