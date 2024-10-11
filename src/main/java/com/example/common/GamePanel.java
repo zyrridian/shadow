@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import com.example.entity.Player;
+
 public class GamePanel extends JPanel implements Runnable {
   
     // Pengaturan layar
@@ -23,6 +25,7 @@ public class GamePanel extends JPanel implements Runnable {
     // System objects
     public KeyHandler keyHandler = new KeyHandler(this);
     Thread gameThread;
+    Player player = new Player(this, keyHandler);
 
     // Menentukan posisi default pemain
     int playerX = 100;
@@ -63,22 +66,13 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        if (keyHandler.upPressed == true) {
-            playerY -= playerSpeed;
-        } else if (keyHandler.downPressed == true) {
-            playerY += playerSpeed;
-        } else if (keyHandler.leftPressed == true) {
-            playerX -= playerSpeed;
-        } else if (keyHandler.rightPressed == true) {
-            playerX += playerSpeed;
-        }
+        player.update();
     }
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.white);
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        player.draw(g2);
         g2.dispose();
     }
 
